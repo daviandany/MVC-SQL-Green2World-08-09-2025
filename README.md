@@ -1,3 +1,7 @@
 # MVC feito no REPLITE; SQL feito no NEON POSTGRES
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fm12.vc%2Fnews%2Fwhy-we-invested-in-neon%2F&psig=AOvVaw1AMt2m85A3YCXE06AsqyRw&ust=1757109771891000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIC-spCOwI8DFQAAAAAdAAAAABAE"/>
+<img width="275" height="183" alt="image" src="https://github.com/user-attachments/assets/039723f7-4d1a-4b10-b601-72e0632a422c" />
+
+<img width="275" height="183" alt="[image](https://replit.com/@andanydavi2/Atividade-2808-Green2World)" src="https://github.com/user-attachments/assets/15f678be-76e8-45d2-a774-d024c7cf749d" />
+
+<img width="275" height="183" alt="[image](https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables)" src="https://github.com/user-attachments/assets/67bc8b75-8d4b-492b-844a-2bcbcff01b35" />
