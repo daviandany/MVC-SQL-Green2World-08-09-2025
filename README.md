@@ -1,5 +1,5 @@
 <p align="center">
-<h1> MVC feito no REPLITE; SQL feito no NEON POSTGRES</h1>  
+<h1> MVC no REPLITE; SQL no NEON POSTGRES</h1>  
 </p>
 
 <p align="center">
