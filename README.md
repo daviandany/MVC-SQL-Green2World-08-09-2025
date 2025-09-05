@@ -1,6 +1,6 @@
-<p align="center">
+<div align="center">
 <h1> MVC no REPLITE; SQL no NEON POSTGRES</h1>  
-</p>
+</div>
 
 <p align="center">
 <a href=https://replit.com/@andanydavi2/Atividade-2808-Green2World>  
