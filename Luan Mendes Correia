@@ -1,0 +1,102 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        // Lista de ecopontos simulados
+        ArrayList<String> ecopontos = new ArrayList<>();
+        ecopontos.add("ECOESTAÇÃO CAMPO GRANDE - Av. Gov. Agamenon Magalhães, 4130");
+        ecopontos.add("Ecoestação Torre - R. Ciclovia República da Argélia, 10");
+        ecopontos.add("Ecoestação do Arruda - R. Farias Neves, 954-1002");
+
+
+        // Cadastro do usuário
+        System.out.println("=== 🌿 Bem-vindo ao Green2World 🌿 ===");
+        System.out.print("Digite seu nome: ");
+        String nome = sc.nextLine();
+        System.out.print("Digite seu e-mail: ");
+        String email = sc.nextLine();
+        System.out.print("Digite seu telefone (ex: (XX) XXXXX-XXXX): ");
+        String telefone = sc.nextLine();
+        System.out.print("Digite sua data de nascimento (ex: DD/MM/AAAA): ");
+        String dataNascimento = sc.nextLine();
+
+
+        int residuosReciclados = 0; // contador de resíduos reciclados
+
+
+        int opcao;
+        do {
+            System.out.println("\n--- MENU ---");
+            System.out.println("Escolha suas opções na ordem abaixo:");
+            System.out.println("1 - Listar Ecopontos");
+            System.out.println("2 - Registrar Resíduos Reciclados");
+            System.out.println("3 - Ver Quantidade de Resíduos Reciclados");
+            System.out.println("4 - Ver Dados do Cadastro");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+            sc.nextLine(); // Limpar o buffer
+
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("\n📍 Ecopontos disponíveis:");
+                    for (String ponto : ecopontos) {
+                        System.out.println("- " + ponto);
+                    }
+                    break;
+
+
+                case 2:
+                    System.out.print("Quantos resíduos você reciclou? ");
+                    int quantidade = sc.nextInt();
+                    residuosReciclados += quantidade;
+                    System.out.println("✅ Registro concluído! Você reciclou mais " + quantidade + " resíduos.");
+                    break;
+
+
+                case 3:
+                    System.out.println("\n♻ " + nome + ", você já reciclou um total de " + residuosReciclados + " resíduos.");
+                    break;
+
+
+                case 4:
+                    System.out.println("\n📋 Dados do Cadastro:");
+                    System.out.println("Nome: " + nome);
+                    System.out.println("E-mail: " + email);
+                    System.out.println("Telefone: " + telefone);
+                    System.out.println("Data de Nascimento: " + dataNascimento);
+                    break;
+
+
+                case 0:
+                    System.out.println("👋 Obrigado por usar o Green2World!");
+                    break;
+
+
+                default:
+                    System.out.println("❌ Opção inválida!");
+            }
+        } while (opcao != 0);
+
+
+        sc.close();
+    }
+}
+// Mensagem motivacional baseada na quantidade de resíduos
+    private static String getMotivationalMessage(int residuos) {
+        if (residuos >= 100) {
+            return ANSI_GREEN + "🌟 Incrível! Você é um herói da reciclagem!" + ANSI_RESET;
+        } else if (residuos >= 50) {
+            return ANSI_GREEN + "👏 Ótimo trabalho! Continue assim!" + ANSI_RESET;
+        } else if (residuos >= 10) {
+            return ANSI_GREEN + "🚀 Bom começo! Vamos reciclar ainda mais!" + ANSI_RESET;
+        } else {
+            return ANSI_GREEN + "🌱 Cada resíduo conta! Continue contribuindo!" + ANSI_RESET;
+        }
+    }
