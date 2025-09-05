@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        // Lista de ecopontos simulados
+        ArrayList<String> ecopontos = new ArrayList<>();
+        ecopontos.add("ECOESTAÇÃO CAMPO GRANDE - Av. Gov. Agamenon Magalhães, 4130");
+        ecopontos.add("Ecoestação Torre - R. Ciclovia República da Argélia, 10");
+        ecopontos.add("Ecoestação do Arruda - R. Farias Neves, 954-1002");
+
+
+        // Cadastro do usuário
+        System.out.println("=== 🌿 Bem-vindo ao Green2World 🌿 ===");
+        System.out.print("Digite seu nome: ");
+        String nome = sc.nextLine();
+        System.out.print("Digite seu e-mail: ");
+        String email = sc.nextLine();
+        System.out.print("Digite seu telefone (ex: (XX) XXXXX-XXXX): ");
+        String telefone = sc.nextLine();
+        System.out.print("Digite sua data de nascimento (ex: DD/MM/AAAA): ");  
