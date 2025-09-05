@@ -3,12 +3,12 @@
 </div>
 
 <p align="center">
-<a target href=https://replit.com/@andanydavi2/Atividade-2808-Green2World>  
-<img width="275" height="183" alt="https://replit.com/@andanydavi2/Atividade-2808-Green2World" src="https://github.com/user-attachments/assets/15f678be-76e8-45d2-a774-d024c7cf749d" target="_blank"ss>
+<a href= "https://replit.com/@andanydavi2/Atividade-2808-Green2World">
+<img width="275" height="183" alt="ABRA O REPLIT" src="https://github.com/user-attachments/assets/15f678be-76e8-45d2-a774-d024c7cf749d">
 </a>
 
   <a href=https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables>
-<img width="230" height="183" alt="[image](https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables)" src="https://github.com/user-attachments/assets/67bc8b75-8d4b-492b-844a-2bcbcff01b35" target="_blank" />
+<img width="230" height="183" alt="ABRA O NEON" src="https://github.com/user-attachments/assets/67bc8b75-8d4b-492b-844a-2bcbcff01b35" target="_blank" />
   </a>
   
 <br>
