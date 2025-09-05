@@ -8,7 +8,7 @@
 </a>
 
   <a href=https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables>
-<img width="230" height="183" alt="[image](https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables)" src="https://github.com/user-attachments/assets/67bc8b75-8d4b-492b-844a-2bcbcff01b35" />
+<img width="230" height="183" alt="[image](https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables)" src="https://github.com/user-attachments/assets/67bc8b75-8d4b-492b-844a-2bcbcff01b35" target="_blank" />
   </a>
   
 <br>
