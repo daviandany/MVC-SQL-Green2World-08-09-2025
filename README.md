@@ -3,8 +3,8 @@
 </div>
 
 <p align="center">
-<a href=https://replit.com/@andanydavi2/Atividade-2808-Green2World>  
-<img width="275" height="183" alt="https://replit.com/@andanydavi2/Atividade-2808-Green2World" src="https://github.com/user-attachments/assets/15f678be-76e8-45d2-a774-d024c7cf749d" />
+<a target href=https://replit.com/@andanydavi2/Atividade-2808-Green2World>  
+<img width="275" height="183" alt="https://replit.com/@andanydavi2/Atividade-2808-Green2World" src="https://github.com/user-attachments/assets/15f678be-76e8-45d2-a774-d024c7cf749d" target="_blank"ss>
 </a>
 
   <a href=https://console.neon.tech/app/projects/weathered-band-02935473/branches/br-polished-base-adbmgrju/tables>
