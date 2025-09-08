@@ -1,0 +1,251 @@
+import java.sql.*;
+import java.util.ArrayList;
+
+
+public class Campanha {
+    private int idCampanhas;
+    private String titulo;
+    private String descricao;
+    private Date dataInicio;
+    private Date dataFim;
+
+
+    public Campanha(int idCampanhas, String titulo, String descricao, Date dataInicio, Date dataFim) {
+        this.idCampanhas = idCampanhas;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+    }
+
+
+    public static Campanha criarCampanha(Connection conn, String titulo, String descricao, Date dataInicio, Date dataFim) throws SQLException {
+        String sql = "INSERT INTO campanhas (titulo, descricao, data_inicio, data_fim) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, titulo);
+            stmt.setString(2, descricao);
+            stmt.setDate(3, dataInicio);
+            stmt.setDate(4, dataFim);
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                return new Campanha(rs.getInt(1), titulo, descricao, dataInicio, dataFim);
+            }
+        }
+        return null;
+    }
+
+
+    public static ArrayList<Campanha> listarCampanhas(Connection conn) throws SQLException {
+        ArrayList<Campanha> campanhas = new ArrayList<>();
+        String sql = "SELECT * FROM campanhas";
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                campanhas.add(new Campanha(rs.getInt("id_campanhas"), rs.getString("titulo"), rs.getString("descricao"),
+                        rs.getDate("data_inicio"), rs.getDate("data_fim")));
+            }
+        }
+        return campanhas;
+
+
+    }
+
+
+    public int getIdCampanhas() { return idCampanhas; }
+    public String getTitulo() { return titulo; }
+    public String getDescricao() { return descricao; }
+    public Date getDataInicio() { return dataInicio; }
+    public Date getDataFim() { return dataFim; }
+}
+
+
+
+public class Ecoponto {
+    private int idEcoponto;
+    private String nome;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+
+
+    public Ecoponto(int idEcoponto, String nome, String rua, String numero, String bairro, String cidade) {
+        this.idEcoponto = idEcoponto;
+        this.nome = nome;
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
+    }
+
+
+    public static ArrayList<Ecoponto> listarEcopontos(Connection conn) throws SQLException {
+        ArrayList<Ecoponto> ecopontos = new ArrayList<>();
+        String sql = "SELECT id_ecoponto, nome, rua, numero, bairro, cidade FROM ecopontos";
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                ecopontos.add(new Ecoponto(rs.getInt("id_ecoponto"), rs.getString("nome"), rs.getString("rua"),
+                        rs.getString("numero"), rs.getString("bairro"), rs.getString("cidade")));
+            }
+        }
+        return ecopontos;
+    }
+
+
+    public int getIdEcoponto() { return idEcoponto; }
+    public String getNome() { return nome; }
+    public String getRua() { return rua; }
+    public String getNumero() { return numero; }
+    public String getBairro() { return bairro; }
+    public String getCidade() { return cidade; }
+}
+
+
+public class Usuario {
+    private int usuarioid;
+    private String firstname;
+    private Date dataAderecao;
+
+
+    public Usuario(int usuarioid, String firstname, Date dataAderecao) {
+        this.usuarioid = usuarioid;
+        this.firstname = firstname;
+        this.dataAderecao = dataAderecao;
+    }
+
+
+    public static Usuario criarUsuario(Connection conn, String firstname, Date dataAderecao) throws SQLException {
+        String sql = "INSERT INTO usuarios (firstname, dataaderecao) VALUES (?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, firstname);
+            stmt.setDate(2, dataAderecao);
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                return new Usuario(rs.getInt(1), firstname, dataAderecao);
+            }
+        }
+        return null;
+    }
+
+
+    public static ArrayList<Usuario> listarUsuarios(Connection conn) throws SQLException {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        String sql = "SELECT * FROM usuarios";
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                usuarios.add(new Usuario(rs.getInt("usuarioid"), rs.getString("firstname"), rs.getDate("dataaderecao")));
+            }
+        }
+        return usuarios;
+    }
+
+
+    public int getUsuarioid() { return usuarioid; }
+    public String getFirstname() { return firstname; }
+    public Date getDataAderecao() { return dataAderecao; }
+}
+
+
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+
+
+public class RecyclingView {
+    private Scanner sc = new Scanner(System.in);
+
+
+    public void mostrarMenu() {
+        System.out.println("\n--- MENU ---");
+        System.out.println("1 - Listar Ecopontos");
+        System.out.println("2 - Criar Campanha");
+        System.out.println("3 - Listar Campanhas");
+        System.out.println("4 - Criar Usuário");
+        System.out.println("5 - Listar Usuários");
+        System.out.println("0 - Sair");
+        System.out.print("Escolha uma opção: ");
+    }
+
+
+    public void mostrarEcopontos(ArrayList<Ecoponto> ecopontos) {
+        System.out.println("\n📍 Ecopontos disponíveis:");
+        for (Ecoponto ponto : ecopontos) {
+            System.out.println("- " + ponto.getNome() + ", " + ponto.getRua() + ", " + ponto.getNumero() + ", " + ponto.getBairro() + ", " + ponto.getCidade());
+        }
+    }
+
+
+    public String[] coletarDadosCampanha() {
+        System.out.println("=== Criar Campanha ===");
+        System.out.print("Título: ");
+        String titulo = sc.nextLine();
+        System.out.print("Descrição: ");
+        String descricao = sc.nextLine();
+        System.out.print("Data Início (AAAA-MM-DD): ");
+        String dataInicioStr = sc.nextLine();
+        System.out.print("Data Fim (AAAA-MM-DD): ");
+        String dataFimStr = sc.nextLine();
+        return new String[]{titulo, descricao, dataInicioStr, dataFimStr};
+    }
+
+
+    public void mostrarCampanhas(ArrayList<Campanha> campanhas) {
+        System.out.println("\n📅 Campanhas:");
+        for (Campanha c : campanhas) {
+            System.out.println("- " + c.getTitulo() + ", Início: " + c.getDataInicio() + ", Fim: " + c.getDataFim());
+        }
+    }
+
+
+    public void mostrarUsuarios(ArrayList<Usuario> usuarios) {
+        System.out.println("\n👤 Usuários:");
+        for (Usuario u : usuarios) {
+            System.out.println("- " + u.getFirstname() + ", Adesão: " + u.getDataAderecao());
+        }
+    }
+
+
+    public String[] coletarDadosUsuario() {
+        System.out.println("=== Criar Usuário ===");
+        System.out.print("Nome: ");
+        String firstname = sc.nextLine();
+        System.out.print("Data de Adesão (AAAA-MM-DD): ");
+        String dataAderecaoStr = sc.nextLine();
+        return new String[]{firstname, dataAderecaoStr};
+    }
+
+
+    public void mostrarMensagem(String mensagem) {
+        System.out.println(mensagem);
+    }
+
+
+    public int coletarOpcao() {
+        try {
+            return Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+
+    public Date parseDate(String dateStr) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            return new Date(sdf.parse(dateStr).getTime());
+        } catch (Exception e) {
+            mostrarMensagem("❌ Data inválida! Usando data atual.");
+            return new Date();
+        }
+    }
+}
